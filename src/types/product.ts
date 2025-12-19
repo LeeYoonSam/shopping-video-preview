@@ -9,4 +9,5 @@ export interface Product {
   category: ProductCategory;
   isNew?: boolean;
   isSale?: boolean;
+  videoUrl?: string;
 }
