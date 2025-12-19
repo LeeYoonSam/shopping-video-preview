@@ -36,8 +36,18 @@ export function useVideoPopup(): UseVideoPopupReturn {
   }, []);
 
   const handleMouseEnter = useCallback((event: React.MouseEvent) => {
-    const clientX = event.clientX || 0;
-    const clientY = event.clientY || 0;
+    const target = event.currentTarget as HTMLElement;
+    const rect = target.getBoundingClientRect();
+
+    // Popup dimensions (320x180)
+    const popupWidth = 320;
+    const popupHeight = 180;
+
+    // Horizontal: center of the card
+    const x = rect.left + rect.width / 2 - popupWidth / 2;
+
+    // Vertical: 30% overlapping with card top (70% above the card)
+    const y = rect.top - popupHeight * 0.7;
 
     // Clear any existing timer
     if (debounceTimerRef.current) {
@@ -45,7 +55,7 @@ export function useVideoPopup(): UseVideoPopupReturn {
     }
 
     // Set position immediately
-    setPosition({ x: clientX, y: clientY });
+    setPosition({ x, y });
 
     // Debounce opening the popup
     debounceTimerRef.current = setTimeout(() => {

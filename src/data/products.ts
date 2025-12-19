@@ -8,7 +8,7 @@ export const PRODUCTS: Product[] = [
     imageUrl: 'https://picsum.photos/seed/product-1/400/500',
     category: '상의',
     isNew: true,
-    videoUrl: 'https://media.example.com/product-1-demo.mp4',
+    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
   },
   {
     id: '2',
@@ -25,7 +25,7 @@ export const PRODUCTS: Product[] = [
     price: 59000,
     imageUrl: 'https://picsum.photos/seed/product-3/400/500',
     category: '상의',
-    videoUrl: 'https://media.example.com/product-3-demo.mp4',
+    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4?v=3',
   },
   {
     id: '4',
@@ -43,7 +43,7 @@ export const PRODUCTS: Product[] = [
     imageUrl: 'https://picsum.photos/seed/product-5/400/500',
     category: '하의',
     isNew: true,
-    videoUrl: 'https://media.example.com/product-5-demo.mp4',
+    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4?v=5',
   },
   {
     id: '6',
@@ -60,7 +60,7 @@ export const PRODUCTS: Product[] = [
     price: 69000,
     imageUrl: 'https://picsum.photos/seed/product-7/400/500',
     category: '하의',
-    videoUrl: 'https://media.example.com/product-7-demo.mp4',
+    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4?v=7',
   },
   {
     id: '8',
@@ -77,7 +77,7 @@ export const PRODUCTS: Product[] = [
     imageUrl: 'https://picsum.photos/seed/product-9/400/500',
     category: '아우터',
     isSale: true,
-    videoUrl: 'https://media.example.com/product-9-demo.mp4',
+    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4?v=9',
   },
   {
     id: '10',
@@ -93,7 +93,7 @@ export const PRODUCTS: Product[] = [
     price: 189000,
     imageUrl: 'https://picsum.photos/seed/product-11/400/500',
     category: '아우터',
-    videoUrl: 'https://media.example.com/product-11-demo.mp4',
+    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4?v=11',
   },
   {
     id: '12',
@@ -110,7 +110,7 @@ export const PRODUCTS: Product[] = [
     price: 49000,
     imageUrl: 'https://picsum.photos/seed/product-13/400/500',
     category: '액세서리',
-    videoUrl: 'https://media.example.com/product-13-demo.mp4',
+    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4?v=13',
   },
   {
     id: '14',
@@ -126,7 +126,7 @@ export const PRODUCTS: Product[] = [
     price: 39000,
     imageUrl: 'https://picsum.photos/seed/product-15/400/500',
     category: '액세서리',
-    videoUrl: 'https://media.example.com/product-15-demo.mp4',
+    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4?v=15',
   },
   {
     id: '16',
@@ -143,7 +143,7 @@ export const PRODUCTS: Product[] = [
     price: 149000,
     imageUrl: 'https://picsum.photos/seed/product-17/400/500',
     category: '액세서리',
-    videoUrl: 'https://media.example.com/product-17-demo.mp4',
+    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4?v=17',
   },
   {
     id: '18',
@@ -160,7 +160,7 @@ export const PRODUCTS: Product[] = [
     price: 45000,
     imageUrl: 'https://picsum.photos/seed/product-19/400/500',
     category: '액세서리',
-    videoUrl: 'https://media.example.com/product-19-demo.mp4',
+    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4?v=19',
   },
   {
     id: '20',

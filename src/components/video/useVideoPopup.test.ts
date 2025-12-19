@@ -2,6 +2,29 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { renderHook, act, waitFor } from '@testing-library/react';
 import { useVideoPopup } from './useVideoPopup';
 
+// Helper function to create mock mouse event with getBoundingClientRect
+const createMockMouseEvent = (cardRect = { left: 100, top: 200, width: 200, height: 300 }) => {
+  const mockElement = {
+    getBoundingClientRect: () => ({
+      left: cardRect.left,
+      top: cardRect.top,
+      right: cardRect.left + cardRect.width,
+      bottom: cardRect.top + cardRect.height,
+      width: cardRect.width,
+      height: cardRect.height,
+      x: cardRect.left,
+      y: cardRect.top,
+      toJSON: () => ({}),
+    }),
+  };
+
+  return {
+    currentTarget: mockElement,
+    clientX: 0,
+    clientY: 0,
+  } as unknown as React.MouseEvent;
+};
+
 describe('useVideoPopup', () => {
   beforeEach(() => {
     vi.clearAllTimers();
@@ -35,11 +58,7 @@ describe('useVideoPopup', () => {
       const { result } = renderHook(() => useVideoPopup());
 
       act(() => {
-        const event = new MouseEvent('mouseenter', {
-          bubbles: true,
-          clientX: 100,
-          clientY: 200,
-        }) as unknown as React.MouseEvent;
+        const event = createMockMouseEvent();
         result.current.handleMouseEnter(event);
       });
 
@@ -52,32 +71,28 @@ describe('useVideoPopup', () => {
       expect(result.current.isOpen).toBe(true);
     });
 
-    it('should capture mouse position on handleMouseEnter', () => {
+    it('should calculate position based on card element', () => {
       const { result } = renderHook(() => useVideoPopup());
 
+      // Card at left:100, top:200, width:200, height:300
+      // Popup: 320x180
+      // Expected x: 100 + 200/2 - 320/2 = 100 + 100 - 160 = 40
+      // Expected y: 200 - 180*0.7 = 200 - 126 = 74
       act(() => {
-        const event = new MouseEvent('mouseenter', {
-          bubbles: true,
-          clientX: 150,
-          clientY: 250,
-        }) as unknown as React.MouseEvent;
+        const event = createMockMouseEvent({ left: 100, top: 200, width: 200, height: 300 });
         result.current.handleMouseEnter(event);
         vi.advanceTimersByTime(200);
       });
 
-      expect(result.current.position.x).toBe(150);
-      expect(result.current.position.y).toBe(250);
+      expect(result.current.position.x).toBeCloseTo(40);
+      expect(result.current.position.y).toBeCloseTo(74);
     });
 
     it('should close popup immediately on handleMouseLeave', () => {
       const { result } = renderHook(() => useVideoPopup());
 
       act(() => {
-        const event = new MouseEvent('mouseenter', {
-          bubbles: true,
-          clientX: 100,
-          clientY: 200,
-        }) as unknown as React.MouseEvent;
+        const event = createMockMouseEvent();
         result.current.handleMouseEnter(event);
         vi.advanceTimersByTime(200);
       });
@@ -95,11 +110,7 @@ describe('useVideoPopup', () => {
       const { result } = renderHook(() => useVideoPopup());
 
       act(() => {
-        const event = new MouseEvent('mouseenter', {
-          bubbles: true,
-          clientX: 100,
-          clientY: 200,
-        }) as unknown as React.MouseEvent;
+        const event = createMockMouseEvent();
         result.current.handleMouseEnter(event);
       });
 
@@ -154,11 +165,7 @@ describe('useVideoPopup', () => {
       const testError = new Error('Video load failed');
 
       act(() => {
-        const event = new MouseEvent('mouseenter', {
-          bubbles: true,
-          clientX: 100,
-          clientY: 200,
-        }) as unknown as React.MouseEvent;
+        const event = createMockMouseEvent();
         result.current.handleMouseEnter(event);
         vi.advanceTimersByTime(200);
       });
@@ -179,11 +186,7 @@ describe('useVideoPopup', () => {
       const { result } = renderHook(() => useVideoPopup());
 
       act(() => {
-        const event = new MouseEvent('mouseenter', {
-          bubbles: true,
-          clientX: 100,
-          clientY: 200,
-        }) as unknown as React.MouseEvent;
+        const event = createMockMouseEvent();
         result.current.handleMouseEnter(event);
         vi.advanceTimersByTime(200);
       });
