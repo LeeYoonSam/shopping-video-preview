@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { Product } from '@/src/types/product';
 import { formatPrice, cn } from '@/src/lib/utils';
+import { VideoPopup, useVideoPopup } from '@/src/components/video';
 
 interface ProductCardProps {
   product: Product;
@@ -13,12 +14,26 @@ export default function ProductCard({
   product,
   className,
 }: ProductCardProps) {
+  const {
+    isOpen,
+    isLoading,
+    position,
+    handleMouseEnter,
+    handleMouseLeave,
+    closePopup,
+    handleLoadStart,
+    handleCanPlay,
+    handleError,
+  } = useVideoPopup();
+
   return (
     <div
       className={cn(
         'group relative bg-white hover:shadow-lg transition-shadow duration-300',
         className
       )}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {/* Image Container */}
       <div className="relative w-full aspect-[4/5] bg-custom-hover overflow-hidden">
@@ -64,6 +79,20 @@ export default function ProductCard({
           )}
         </div>
       </div>
+
+      {/* Video Popup - only show if product has video URL */}
+      {product.videoUrl && (
+        <VideoPopup
+          videoUrl={product.videoUrl}
+          isOpen={isOpen}
+          isLoading={isLoading}
+          position={position}
+          onClose={closePopup}
+          onLoadStart={handleLoadStart}
+          onCanPlay={handleCanPlay}
+          onError={handleError}
+        />
+      )}
     </div>
   );
 }
