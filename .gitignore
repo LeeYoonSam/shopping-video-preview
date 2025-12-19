@@ -96,6 +96,7 @@ logs/
 *.temp
 *.bak
 *.backup
+test-results.txt
 
 # ---------------------------------------------
 # Test Coverage
@@ -163,6 +164,9 @@ secret-*.*
 # ---------------------------------------------
 # Claude Code Local Configuration
 # ---------------------------------------------
+.claude/
+.mcp.json
+CLAUDE.md
 .claude/settings.local.json
 .claude/settings.local.*.json
 .claude/.env.local*
