@@ -4,7 +4,7 @@
 spec_id: SPEC-VIDEO-DATA-001
 title: 다양한 테스트 비디오 데이터 추가
 version: 1.0.0
-status: draft
+status: completed
 priority: low
 domain: data
 created: 2025-12-22
@@ -231,4 +231,4 @@ videoUrl: '각 상품별 고유한 비디오 URL'
 
 Document Version: 1.0.0
 Last Updated: 2025-12-22
-Status: Draft
+Status: Completed

@@ -89,6 +89,7 @@ This project uses SPEC-driven development with MoAI-ADK. Current specifications:
 | SPEC ID | Title | Status | Description |
 |---------|-------|--------|-------------|
 | SPEC-PRODUCT-001 | Product List Page | **Completed** | Product grid with responsive layout and monochrome design |
+| SPEC-VIDEO-DATA-001 | Test Video Data | **Completed** | 다양한 테스트 비디오 URL 추가 및 비디오 재생 버그 수정 |
 | SPEC-VIDEO-PREVIEW-001 | Video Hover Preview UI | Draft | Video popup on product card hover |
 | SPEC-VIDEO-AI-002 | AI Video Generation System | Draft | Admin dashboard for AI-powered video generation |
 
@@ -164,5 +165,5 @@ Private project. All rights reserved.
 
 ---
 
-Document Version: 1.0.0
-Last Updated: 2025-12-19
+Document Version: 1.1.0
+Last Updated: 2025-12-22
