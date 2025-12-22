@@ -64,19 +64,20 @@ export function VideoPopup({
               className
             )}
           >
-            <div className="aspect-video bg-black">
-              {isLoading ? (
-                <VideoLoadingSkeleton />
-              ) : (
-                <VideoPlayer
-                  src={videoUrl}
-                  autoPlay
-                  muted
-                  loop
-                  onLoadStart={onLoadStart}
-                  onCanPlay={onCanPlay}
-                  onError={onError}
-                />
+            <div className="aspect-video bg-black relative">
+              <VideoPlayer
+                src={videoUrl}
+                autoPlay
+                muted
+                loop
+                onLoadStart={onLoadStart}
+                onCanPlay={onCanPlay}
+                onError={onError}
+              />
+              {isLoading && (
+                <div className="absolute inset-0">
+                  <VideoLoadingSkeleton />
+                </div>
               )}
             </div>
             <Dialog.Close asChild>
@@ -110,18 +111,19 @@ export function VideoPopup({
       aria-label="Video preview popup"
     >
       <div className="relative w-full h-full">
-        {isLoading ? (
-          <VideoLoadingSkeleton />
-        ) : (
-          <VideoPlayer
-            src={videoUrl}
-            autoPlay
-            muted
-            loop
-            onLoadStart={onLoadStart}
-            onCanPlay={onCanPlay}
-            onError={onError}
-          />
+        <VideoPlayer
+          src={videoUrl}
+          autoPlay
+          muted
+          loop
+          onLoadStart={onLoadStart}
+          onCanPlay={onCanPlay}
+          onError={onError}
+        />
+        {isLoading && (
+          <div className="absolute inset-0">
+            <VideoLoadingSkeleton />
+          </div>
         )}
         <button
           onClick={onClose}

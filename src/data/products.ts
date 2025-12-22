@@ -8,7 +8,7 @@ export const PRODUCTS: Product[] = [
     imageUrl: 'https://picsum.photos/seed/product-1/400/500',
     category: '상의',
     isNew: true,
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.mp4',
+    videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
   },
   {
     id: '2',
@@ -25,7 +25,7 @@ export const PRODUCTS: Product[] = [
     price: 59000,
     imageUrl: 'https://picsum.photos/seed/product-3/400/500',
     category: '상의',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/BigBuckBunny.mp4',
+    videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
   },
   {
     id: '4',
@@ -43,7 +43,7 @@ export const PRODUCTS: Product[] = [
     imageUrl: 'https://picsum.photos/seed/product-5/400/500',
     category: '하의',
     isNew: true,
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ElephantsDream.mp4',
+    videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
   },
   {
     id: '6',
@@ -60,7 +60,7 @@ export const PRODUCTS: Product[] = [
     price: 69000,
     imageUrl: 'https://picsum.photos/seed/product-7/400/500',
     category: '하의',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.mp4?v=7',
+    videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
   },
   {
     id: '8',
@@ -77,7 +77,7 @@ export const PRODUCTS: Product[] = [
     imageUrl: 'https://picsum.photos/seed/product-9/400/500',
     category: '아우터',
     isSale: true,
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/Sintel.mp4',
+    videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4',
   },
   {
     id: '10',
@@ -93,7 +93,7 @@ export const PRODUCTS: Product[] = [
     price: 189000,
     imageUrl: 'https://picsum.photos/seed/product-11/400/500',
     category: '아우터',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/TearsOfSteel.mp4',
+    videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
   },
   {
     id: '12',
@@ -110,7 +110,7 @@ export const PRODUCTS: Product[] = [
     price: 49000,
     imageUrl: 'https://picsum.photos/seed/product-13/400/500',
     category: '액세서리',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/VolunteersDream.mp4',
+    videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
   },
   {
     id: '14',
@@ -126,7 +126,7 @@ export const PRODUCTS: Product[] = [
     price: 39000,
     imageUrl: 'https://picsum.photos/seed/product-15/400/500',
     category: '액세서리',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/WeAreGoingOnBullrun.mp4',
+    videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4',
   },
   {
     id: '16',
@@ -143,7 +143,7 @@ export const PRODUCTS: Product[] = [
     price: 149000,
     imageUrl: 'https://picsum.photos/seed/product-17/400/500',
     category: '액세서리',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerJoyrides.mp4',
+    videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
   },
   {
     id: '18',
@@ -160,7 +160,7 @@ export const PRODUCTS: Product[] = [
     price: 45000,
     imageUrl: 'https://picsum.photos/seed/product-19/400/500',
     category: '액세서리',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.mp4?v=wallet',
+    videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4',
   },
   {
     id: '20',
