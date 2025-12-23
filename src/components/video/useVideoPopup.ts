@@ -39,9 +39,9 @@ export function useVideoPopup(): UseVideoPopupReturn {
     const target = event.currentTarget as HTMLElement;
     const rect = target.getBoundingClientRect();
 
-    // Popup dimensions (320x180)
+    // Popup dimensions (320x568 for desktop)
     const popupWidth = 320;
-    const popupHeight = 180;
+    const popupHeight = 568;
 
     // Horizontal: center of the card
     const x = rect.left + rect.width / 2 - popupWidth / 2;
@@ -57,10 +57,10 @@ export function useVideoPopup(): UseVideoPopupReturn {
     // Set position immediately
     setPosition({ x, y });
 
-    // Debounce opening the popup
+    // Debounce opening the popup (300ms delay)
     debounceTimerRef.current = setTimeout(() => {
       setIsOpen(true);
-    }, 200);
+    }, 300);
   }, []);
 
   const handleMouseLeave = useCallback(() => {

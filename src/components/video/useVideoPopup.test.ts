@@ -54,7 +54,7 @@ describe('useVideoPopup', () => {
   });
 
   describe('handleMouseEnter and handleMouseLeave', () => {
-    it('should open popup after 200ms debounce on handleMouseEnter', () => {
+    it('should open popup after 300ms debounce on handleMouseEnter', () => {
       const { result } = renderHook(() => useVideoPopup());
 
       act(() => {
@@ -65,27 +65,27 @@ describe('useVideoPopup', () => {
       expect(result.current.isOpen).toBe(false);
 
       act(() => {
-        vi.advanceTimersByTime(200);
+        vi.advanceTimersByTime(300);
       });
 
       expect(result.current.isOpen).toBe(true);
     });
 
-    it('should calculate position based on card element', () => {
+    it('should calculate position based on card element for desktop (320x568)', () => {
       const { result } = renderHook(() => useVideoPopup());
 
       // Card at left:100, top:200, width:200, height:300
-      // Popup: 320x180
+      // Popup: 320x568 (desktop)
       // Expected x: 100 + 200/2 - 320/2 = 100 + 100 - 160 = 40
-      // Expected y: 200 - 180*0.7 = 200 - 126 = 74
+      // Expected y: 200 - 568*0.7 = 200 - 397.6 = -197.6
       act(() => {
         const event = createMockMouseEvent({ left: 100, top: 200, width: 200, height: 300 });
         result.current.handleMouseEnter(event);
-        vi.advanceTimersByTime(200);
+        vi.advanceTimersByTime(300);
       });
 
       expect(result.current.position.x).toBeCloseTo(40);
-      expect(result.current.position.y).toBeCloseTo(74);
+      expect(result.current.position.y).toBeCloseTo(-197.6);
     });
 
     it('should close popup immediately on handleMouseLeave', () => {
@@ -94,7 +94,7 @@ describe('useVideoPopup', () => {
       act(() => {
         const event = createMockMouseEvent();
         result.current.handleMouseEnter(event);
-        vi.advanceTimersByTime(200);
+        vi.advanceTimersByTime(300);
       });
 
       expect(result.current.isOpen).toBe(true);
@@ -121,7 +121,7 @@ describe('useVideoPopup', () => {
       });
 
       act(() => {
-        vi.advanceTimersByTime(200);
+        vi.advanceTimersByTime(300);
       });
 
       expect(result.current.isOpen).toBe(false);
@@ -167,7 +167,7 @@ describe('useVideoPopup', () => {
       act(() => {
         const event = createMockMouseEvent();
         result.current.handleMouseEnter(event);
-        vi.advanceTimersByTime(200);
+        vi.advanceTimersByTime(300);
       });
 
       expect(result.current.isOpen).toBe(true);
@@ -188,7 +188,7 @@ describe('useVideoPopup', () => {
       act(() => {
         const event = createMockMouseEvent();
         result.current.handleMouseEnter(event);
-        vi.advanceTimersByTime(200);
+        vi.advanceTimersByTime(300);
       });
 
       expect(result.current.isOpen).toBe(true);

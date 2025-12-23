@@ -7,26 +7,26 @@ describe('VideoPopup', () => {
 
   describe('visibility', () => {
     it('should not render popup when isOpen=false', () => {
-      const { container } = render(
+      render(
         <VideoPopup
           videoUrl={mockVideoUrl}
           isOpen={false}
           onClose={() => {}}
         />
       );
-      const popup = container.querySelector('[role="dialog"]');
+      const popup = document.querySelector('[role="dialog"]');
       expect(popup).not.toBeInTheDocument();
     });
 
     it('should render popup when isOpen=true', () => {
-      const { container } = render(
+      render(
         <VideoPopup
           videoUrl={mockVideoUrl}
           isOpen={true}
           onClose={() => {}}
         />
       );
-      const popup = container.querySelector('[role="dialog"]');
+      const popup = document.querySelector('[role="dialog"]');
       expect(popup).toBeInTheDocument();
     });
   });
@@ -62,7 +62,7 @@ describe('VideoPopup', () => {
 
   describe('loading state', () => {
     it('should show skeleton when isLoading=true', () => {
-      const { container } = render(
+      render(
         <VideoPopup
           videoUrl={mockVideoUrl}
           isOpen={true}
@@ -70,12 +70,12 @@ describe('VideoPopup', () => {
           onClose={() => {}}
         />
       );
-      const skeleton = container.querySelector('[aria-hidden="true"]');
+      const skeleton = document.querySelector('[aria-hidden="true"]');
       expect(skeleton).toBeInTheDocument();
     });
 
     it('should not show skeleton when isLoading=false', () => {
-      const { container } = render(
+      render(
         <VideoPopup
           videoUrl={mockVideoUrl}
           isOpen={true}
@@ -83,27 +83,27 @@ describe('VideoPopup', () => {
           onClose={() => {}}
         />
       );
-      const skeleton = container.querySelector('[aria-hidden="true"]');
+      const skeleton = document.querySelector('[aria-hidden="true"]');
       expect(skeleton).not.toBeInTheDocument();
     });
   });
 
   describe('video player', () => {
     it('should render video player when isOpen=true', () => {
-      const { container } = render(
+      render(
         <VideoPopup
           videoUrl={mockVideoUrl}
           isOpen={true}
           onClose={() => {}}
         />
       );
-      const video = container.querySelector('video');
+      const video = document.querySelector('video');
       expect(video).toBeInTheDocument();
     });
 
     it('should call onLoadStart when video loads', () => {
       const onLoadStart = vi.fn();
-      const { container } = render(
+      render(
         <VideoPopup
           videoUrl={mockVideoUrl}
           isOpen={true}
@@ -111,7 +111,7 @@ describe('VideoPopup', () => {
           onLoadStart={onLoadStart}
         />
       );
-      const videoElement = container.querySelector('video') as HTMLVideoElement;
+      const videoElement = document.querySelector('video') as HTMLVideoElement;
       const event = new Event('loadstart');
       videoElement.dispatchEvent(event);
       expect(onLoadStart).toHaveBeenCalled();
@@ -119,7 +119,7 @@ describe('VideoPopup', () => {
 
     it('should call onCanPlay when video can play', () => {
       const onCanPlay = vi.fn();
-      const { container } = render(
+      render(
         <VideoPopup
           videoUrl={mockVideoUrl}
           isOpen={true}
@@ -127,7 +127,7 @@ describe('VideoPopup', () => {
           onCanPlay={onCanPlay}
         />
       );
-      const videoElement = container.querySelector('video') as HTMLVideoElement;
+      const videoElement = document.querySelector('video') as HTMLVideoElement;
       const event = new Event('canplay');
       videoElement.dispatchEvent(event);
       expect(onCanPlay).toHaveBeenCalled();
@@ -135,7 +135,7 @@ describe('VideoPopup', () => {
 
     it('should call onError when video fails to load', () => {
       const onError = vi.fn();
-      const { container } = render(
+      render(
         <VideoPopup
           videoUrl={mockVideoUrl}
           isOpen={true}
@@ -143,7 +143,7 @@ describe('VideoPopup', () => {
           onError={onError}
         />
       );
-      const videoElement = container.querySelector('video') as HTMLVideoElement;
+      const videoElement = document.querySelector('video') as HTMLVideoElement;
       const event = new ErrorEvent('error');
       videoElement.dispatchEvent(event);
       expect(onError).toHaveBeenCalled();
@@ -152,7 +152,7 @@ describe('VideoPopup', () => {
 
   describe('custom className', () => {
     it('should apply custom className to popup container', () => {
-      const { container } = render(
+      render(
         <VideoPopup
           videoUrl={mockVideoUrl}
           isOpen={true}
@@ -160,14 +160,14 @@ describe('VideoPopup', () => {
           className="custom-class"
         />
       );
-      const popup = container.querySelector('[role="dialog"]');
+      const popup = document.querySelector('[role="dialog"]');
       expect(popup).toHaveClass('custom-class');
     });
   });
 
   describe('position prop', () => {
     it('should render popup at specified position on desktop', () => {
-      const { container } = render(
+      render(
         <VideoPopup
           videoUrl={mockVideoUrl}
           isOpen={true}
@@ -175,8 +175,9 @@ describe('VideoPopup', () => {
           position={{ x: 100, y: 200 }}
         />
       );
-      const popup = container.querySelector('[role="dialog"]');
+      const popup = document.querySelector('[role="dialog"]');
       const style = popup?.getAttribute('style');
+      expect(style).toBeTruthy();
       expect(style).toContain('left');
       expect(style).toContain('top');
     });
