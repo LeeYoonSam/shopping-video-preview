@@ -1,0 +1,115 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Job status enum for virtual try-on jobs
+enum JobStatus {
+  QUEUED
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+// Product image for virtual try-on
+model ProductImage {
+  id        String   @id @default(cuid())
+  url       String
+  s3Key     String
+  width     Int
+  height    Int
+  format    String   // JPEG, PNG, WebP
+  fileSize  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  tryOnResults TryOnResult[]
+
+  @@index([s3Key])
+}
+
+// Model image (human model for virtual try-on)
+model ModelImage {
+  id        String   @id @default(cuid())
+  url       String
+  s3Key     String
+  name      String
+  width     Int
+  height    Int
+  format    String   // JPEG, PNG, WebP
+  fileSize  Int
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  tryOnJobs   TryOnJob[]
+  tryOnResults TryOnResult[]
+
+  @@index([isActive])
+  @@index([s3Key])
+}
+
+// Try-on job with queue status
+model TryOnJob {
+  id              String    @id @default(cuid())
+  jobId           String    @unique // Bull queue job ID
+  productImageId  String
+  modelImageId    String
+  status          JobStatus @default(QUEUED)
+  progress        Int       @default(0) // 0-100
+  resultImageUrl  String?
+  errorMessage    String?
+  retryCount      Int       @default(0)
+  maxRetries      Int       @default(3)
+  nextRetryAt     DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  completedAt     DateTime?
+
+  // Relations
+  productImage  ProductImage @relation(fields: [productImageId], references: [id], onDelete: Cascade)
+  modelImage    ModelImage   @relation(fields: [modelImageId], references: [id], onDelete: Cascade)
+  tryOnResult   TryOnResult?
+
+  @@index([jobId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+// Result of virtual try-on generation
+model TryOnResult {
+  id              String   @id @default(cuid())
+  tryOnJobId      String   @unique
+  resultImageUrl  String
+  s3Key           String
+  width           Int
+  height          Int
+  format          String   // JPEG, PNG, WebP
+  fileSize        Int
+  cachedAt        DateTime @default(now())
+  expiresAt       DateTime // Cache expiry
+  isCached        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  tryOnJob       TryOnJob      @relation(fields: [tryOnJobId], references: [id], onDelete: Cascade)
+  productImage   ProductImage  @relation(fields: [productImageId], references: [id], onDelete: Cascade)
+  modelImage     ModelImage    @relation(fields: [modelImageId], references: [id], onDelete: Cascade)
+
+  productImageId String
+  modelImageId   String
+
+  @@index([expiresAt])
+  @@index([s3Key])
+  @@index([createdAt])
+}
