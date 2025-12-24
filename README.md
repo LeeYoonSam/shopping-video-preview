@@ -92,6 +92,7 @@ This project uses SPEC-driven development with MoAI-ADK. Current specifications:
 | SPEC-VIDEO-DATA-001 | Test Video Data | **Completed** | 다양한 테스트 비디오 URL 추가 및 비디오 재생 버그 수정 |
 | SPEC-VIDEO-PREVIEW-001 | Video Hover Preview UI | Draft | Video popup on product card hover |
 | SPEC-VIDEO-AI-002 | AI Video Generation System | Draft | Admin dashboard for AI-powered video generation |
+| SPEC-TRYON-001 | AI Virtual Try-On | **Completed** | FASHN AI 기반 가상 착용 이미지 생성 시스템 |
 
 ### SPEC-PRODUCT-001 (Completed)
 
@@ -122,6 +123,16 @@ Planned features:
 - Pika Labs integration for image-to-video
 - Async job processing with Bull + Redis
 - Cost tracking and management
+
+### SPEC-TRYON-001 (Completed)
+
+AI-powered virtual try-on image generation system:
+
+- FASHN AI API integration for virtual try-on
+- Bull Queue for async job processing
+- Redis caching for results
+- S3/R2 storage for images
+- API endpoints: /api/tryon/upload, /models, /generate, /jobs, /results
 
 ## Development Guidelines
 
@@ -165,5 +176,5 @@ Private project. All rights reserved.
 
 ---
 
-Document Version: 1.1.0
-Last Updated: 2025-12-22
+Document Version: 1.2.0
+Last Updated: 2025-12-24

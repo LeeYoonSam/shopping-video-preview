@@ -1,9 +1,9 @@
 ---
 id: SPEC-TRYON-001
-version: "1.0.0"
-status: "draft"
+version: "1.1.0"
+status: "completed"
 created: "2025-12-23"
-updated: "2025-12-23"
+updated: "2025-12-24"
 author: "MoAI-ADK"
 priority: "HIGH"
 tags: ["AI", "Virtual Try-On", "FASHN AI", "Image Generation"]
@@ -19,6 +19,7 @@ traceability:
 | 버전 | 날짜 | 작성자 | 변경 내용 |
 |------|------|--------|-----------|
 | 1.0.0 | 2025-12-23 | MoAI-ADK | 초기 SPEC 작성 |
+| 1.1.0 | 2025-12-24 | MoAI-ADK | TDD 구현 완료, 상태를 completed로 변경 |
 
 ---
 
@@ -307,7 +308,7 @@ traceability:
 
 ---
 
-**Document Version**: 1.0.0
-**Last Updated**: 2025-12-23
-**Status**: Draft
+**Document Version**: 1.1.0
+**Last Updated**: 2025-12-24
+**Status**: Completed
 **Traceability**: plan.md, acceptance.md
