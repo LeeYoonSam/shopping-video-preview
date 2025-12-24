@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback } from 'react';
-import { cn } from '@/src/lib/utils';
+import { cn } from '@/lib/utils';
 
 export interface VideoPlayerProps {
   src: string;

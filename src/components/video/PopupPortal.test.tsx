@@ -37,7 +37,7 @@ describe('PopupPortal', () => {
   });
 
   it('should have z-index management via portal root', () => {
-    const { container } = render(
+    render(
       <PopupPortal>
         <div data-testid="popup-content">Content</div>
       </PopupPortal>
@@ -49,7 +49,7 @@ describe('PopupPortal', () => {
   });
 
   it('should render with correct z-index on portal container', () => {
-    const { rerender } = render(
+    render(
       <PopupPortal>
         <div>Content</div>
       </PopupPortal>
@@ -64,7 +64,7 @@ describe('PopupPortal', () => {
   });
 
   it('should handle multiple children', () => {
-    const { getByText, getAllByRole } = render(
+    const { getAllByRole } = render(
       <PopupPortal>
         <div role="button">Button 1</div>
         <div role="button">Button 2</div>

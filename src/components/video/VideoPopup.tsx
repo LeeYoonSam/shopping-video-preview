@@ -5,7 +5,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { VideoPlayer } from './VideoPlayer';
 import { VideoLoadingSkeleton } from './VideoLoadingSkeleton';
 import { PopupPortal } from './PopupPortal';
-import { cn } from '@/src/lib/utils';
+import { cn } from '@/lib/utils';
 
 // Popup dimensions for different viewport sizes
 const POPUP_DIMENSIONS = {

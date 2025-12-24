@@ -34,7 +34,7 @@ describe('VideoPopup', () => {
   describe('close button', () => {
     it('should call onClose when close button is clicked', () => {
       const onClose = vi.fn();
-      const { container } = render(
+      render(
         <VideoPopup
           videoUrl={mockVideoUrl}
           isOpen={true}

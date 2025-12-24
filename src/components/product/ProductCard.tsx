@@ -1,9 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { Product } from '@/src/types/product';
-import { formatPrice, cn } from '@/src/lib/utils';
-import { VideoPopup, useVideoPopup } from '@/src/components/video';
+import { Product } from '@/types/product';
+import { formatPrice, cn } from '@/lib/utils';
+import { VideoPopup, useVideoPopup } from '@/components/video';
 
 interface ProductCardProps {
   product: Product;

@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { renderHook, act, waitFor } from '@testing-library/react';
+import { renderHook, act } from '@testing-library/react';
 import { useVideoPopup } from './useVideoPopup';
 
 // Helper function to create mock mouse event with getBoundingClientRect

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import ProductGrid from './ProductGrid';
-import { Product } from '@/src/types/product';
+import { Product } from '@/types/product';
 
 describe('ProductGrid', () => {
   const mockProducts: Product[] = [

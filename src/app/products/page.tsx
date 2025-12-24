@@ -1,5 +1,5 @@
-import { PRODUCTS } from '@/src/data/products';
-import { ProductGrid } from '@/src/components/product';
+import { PRODUCTS } from '@/data/products';
+import { ProductGrid } from '@/components/product';
 
 export const metadata = {
   title: '상품 리스트 | Shopping Video Preview',
